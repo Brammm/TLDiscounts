@@ -1,6 +1,6 @@
 <?php
 
-namespace Brammm\TLDiscounts;
+namespace Brammm\TLDiscounts\Application;
 
 use DI\Bridge\Slim\App;
 use DI\ContainerBuilder;

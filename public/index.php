@@ -2,7 +2,7 @@
 
 namespace {
 
-    use Brammm\TLDiscounts\Discounts;
+    use Brammm\TLDiscounts\Application\Discounts;
 
     require(__DIR__ . '/../vendor/autoload.php');
 

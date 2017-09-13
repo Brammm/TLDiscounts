@@ -2,7 +2,7 @@
 
 namespace Brammm\TLDiscounts\Tests\Functional;
 
-use Brammm\TLDiscounts\Discounts;
+use Brammm\TLDiscounts\Application\Discounts;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Environment;
