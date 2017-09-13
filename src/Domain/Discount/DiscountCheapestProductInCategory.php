@@ -7,7 +7,7 @@ use Brammm\TLDiscounts\Domain\Order\Order;
 use Brammm\TLDiscounts\Domain\Product\Category;
 use Brammm\TLDiscounts\Domain\Product\ProductRepository;
 
-class DiscountCheapestProductInCategory implements ItemDiscount
+class DiscountCheapestProductInCategory implements Discount
 {
     /**
      * @var ProductRepository

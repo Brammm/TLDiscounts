@@ -7,7 +7,7 @@ use Brammm\TLDiscounts\Domain\Order\Order;
 use Brammm\TLDiscounts\Domain\Product\Category;
 use Brammm\TLDiscounts\Domain\Product\ProductRepository;
 
-class BuyAmountGetExtra implements ItemDiscount
+class BuyAmountGetExtra implements Discount
 {
     /**
      * @var ProductRepository

@@ -2,7 +2,7 @@
 
 namespace Brammm\TLDiscounts\Domain\Order;
 
-use Brammm\TLDiscounts\Domain\Discount\ItemDiscount;
+use Brammm\TLDiscounts\Domain\Discount\Discount;
 use Brammm\TLDiscounts\Domain\Price\Price;
 
 class Item implements \JsonSerializable
@@ -28,7 +28,7 @@ class Item implements \JsonSerializable
     private $total;
 
     /**
-     * @var ItemDiscount
+     * @var Discount
      */
     private $discount;
 
@@ -65,7 +65,7 @@ class Item implements \JsonSerializable
         return $this->total;
     }
 
-    public function setDiscount(ItemDiscount $discount)
+    public function setDiscount(Discount $discount)
     {
         $this->discount = $discount;
     }
