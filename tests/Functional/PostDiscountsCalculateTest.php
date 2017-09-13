@@ -2,24 +2,10 @@
 
 namespace Brammm\TLDiscounts\Tests\Functional;
 
-use Brammm\TLDiscounts\Application\Discounts;
-use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
-use Slim\Http\Environment;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Brammm\TLDiscounts\Tests\AppTestCase;
 
-class PostDiscountsCalculateTest extends TestCase
+class PostDiscountsCalculateTest extends AppTestCase
 {
-    /**
-     * @var Discounts
-     */
-    public $app;
-
-    public function setUp()
-    {
-        $this->app = new Discounts(__DIR__ . '/../../');
-    }
 
     public function testOrderOne()
     {
@@ -209,22 +195,5 @@ class PostDiscountsCalculateTest extends TestCase
             ],
             'total'=> '90.05',
         ], $data);
-    }
-
-    private function request(string $requestMethod, string $requestUri, array $requestData = []): ResponseInterface
-    {
-        $environment = Environment::mock(
-            [
-                'REQUEST_METHOD' => $requestMethod,
-                'REQUEST_URI' => $requestUri
-            ]
-        );
-
-        $request = Request::createFromEnvironment($environment);
-        if (isset($requestData)) {
-            $request = $request->withParsedBody($requestData);
-        }
-
-        return $this->app->process($request, new Response());
     }
 }

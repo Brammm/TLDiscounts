@@ -20,7 +20,7 @@ class InMemoryProductRepository implements ProductRepository
 
     public function findById(string $id): Product
     {
-        if (isset($this->$products[$id])) {
+        if (isset($this->products[$id])) {
             return $this->products[$id];
         }
 

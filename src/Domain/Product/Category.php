@@ -2,9 +2,9 @@
 
 namespace Brammm\TLDiscounts\Domain\Product;
 
-use Eloquent\Enumeration\AbstractEnumeration;
+use MyCLabs\Enum\Enum;
 
-class Category extends AbstractEnumeration
+class Category extends Enum
 {
     const TOOL = 1;
     const SWITCH = 2;
