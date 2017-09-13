@@ -4,7 +4,7 @@ namespace Brammm\TLDiscounts\Tests\Unit\Domain\Order;
 
 use Brammm\TLDiscounts\Domain\Order\Item;
 use Brammm\TLDiscounts\Domain\Order\Order;
-use Money\Money;
+use Brammm\TLDiscounts\Domain\Order\Price;
 use PHPUnit\Framework\TestCase;
 
 class OrderTest extends TestCase
@@ -15,10 +15,10 @@ class OrderTest extends TestCase
             1,
             1,
             [
-                new Item('A101', 1, Money::EUR(5), Money::EUR(5)),
-                new Item('A102', 2, Money::EUR(10), Money::EUR(20)),
+                new Item('A101', 1, new Price(5), new Price(5)),
+                new Item('A102', 2, new Price(10), new Price(20)),
             ],
-            Money::EUR(25)
+            new Price(25)
         );
 
         $this->assertCount(2, $order->getItems());
@@ -33,7 +33,7 @@ class OrderTest extends TestCase
             [
                 'Foo'
             ],
-            Money::EUR(25)
+            new Price(25)
         );
     }
 }

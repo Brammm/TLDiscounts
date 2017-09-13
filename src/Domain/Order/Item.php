@@ -2,8 +2,6 @@
 
 namespace Brammm\TLDiscounts\Domain\Order;
 
-use Money\Money;
-
 class Item
 {
     /**
@@ -17,16 +15,16 @@ class Item
     private $quantity;
 
     /**
-     * @var Money
+     * @var Price
      */
     private $unitPrice;
 
     /**
-     * @var Money
+     * @var Price
      */
     private $total;
 
-    public function __construct(string $productId, int $quantity, Money $unitPrice, Money $total)
+    public function __construct(string $productId, int $quantity, Price $unitPrice, Price $total)
     {
         $this->productId = $productId;
         $this->quantity = $quantity;
@@ -44,12 +42,12 @@ class Item
         return $this->quantity;
     }
 
-    public function getUnitPrice(): Money
+    public function getUnitPrice(): Price
     {
         return $this->unitPrice;
     }
 
-    public function getTotal(): Money
+    public function getTotal(): Price
     {
         return $this->total;
     }

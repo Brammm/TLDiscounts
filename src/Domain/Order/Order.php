@@ -2,8 +2,6 @@
 
 namespace Brammm\TLDiscounts\Domain\Order;
 
-use Money\Money;
-
 class Order
 {
     /**
@@ -22,11 +20,11 @@ class Order
     private $items;
 
     /**
-     * @var Money
+     * @var Price
      */
     private $total;
 
-    public function __construct(int $id, int $customerId, array $items, Money $total)
+    public function __construct(int $id, int $customerId, array $items, Price $total)
     {
         $this->id = $id;
         $this->customerId = $customerId;
@@ -51,7 +49,7 @@ class Order
         return $this->items;
     }
 
-    public function getTotal(): Money
+    public function getTotal(): Price
     {
         return $this->total;
     }
