@@ -37,9 +37,7 @@ class PostDiscountsCalculateTest extends AppTestCase
                     'applied-discount' => 'BuyFiveOneFreeExtra',
                 ],
             ],
-            'applied-discounts' => [
-                'BuyFiveOneFreeExtra',
-            ],
+            'applied-discount' => null,
             'total'=> '49.90',
         ], $data);
     }
@@ -74,10 +72,7 @@ class PostDiscountsCalculateTest extends AppTestCase
                     'applied-discount' => 'BuyFiveOneFreeExtra',
                 ],
             ],
-            'applied-discounts' => [
-                'HighRevenueCustomer',
-                'BuyFiveOneFreeExtra',
-            ],
+            'applied-discount' => 'HighRevenueCustomer',
             'total'=> '22.46',
         ], $data);
     }
@@ -125,9 +120,7 @@ class PostDiscountsCalculateTest extends AppTestCase
                     'applied-discount' => null,
                 ],
             ],
-            'applied-discounts' => [
-                'TwentyOffCheapest',
-            ],
+            'applied-discount' => null,
             'total'=> '65.10',
         ], $data);
     }
@@ -188,11 +181,7 @@ class PostDiscountsCalculateTest extends AppTestCase
                     'applied-discount' => null,
                 ],
             ],
-            'applied-discounts' => [
-                'HighRevenueCustomer',
-                'BuyFiveOneFreeExtra',
-                'TwentyOffCheapest',
-            ],
+            'applied-discount' => 'HighRevenueCustomer',
             'total'=> '90.05',
         ], $data);
     }
