@@ -2,11 +2,12 @@
 
 namespace Brammm\TLDiscounts\Domain\Discount;
 
+use Brammm\TLDiscounts\Domain\Order\Item;
 use Brammm\TLDiscounts\Domain\Order\Order;
 use Brammm\TLDiscounts\Domain\Product\Category;
 use Brammm\TLDiscounts\Domain\Product\ProductRepository;
 
-class DiscountCheapestProductInCategory implements Discount
+class DiscountCheapestProductInCategory implements ItemDiscount
 {
     /**
      * @var ProductRepository
@@ -38,7 +39,7 @@ class DiscountCheapestProductInCategory implements Discount
     
     public function getName(): string
     {
-        return sprintf('$dOffCheapest', $this->percentageDiscount);
+        return sprintf('%dOffCheapest', $this->percentageDiscount);
     }
 
     public function isApplicable(Order $order): bool
@@ -74,7 +75,13 @@ class DiscountCheapestProductInCategory implements Discount
             }
         }
 
-        $cheapestItem->getTotal()->applyDiscountPercentage(20);
+        $cheapestItem->apply($this);
         $order->recalculateTotal();
+    }
+
+    public function applyItem(Item $item)
+    {
+        $item->getTotal()->applyDiscountPercentage(20);
+        $item->setDiscount($this);
     }
 }

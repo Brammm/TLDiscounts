@@ -39,5 +39,6 @@ class HighRevenueCustomer implements Discount
     public function apply(Order $order)
     {
         $order->getTotal()->applyDiscountPercentage(10);
+        $order->setDiscount($this);
     }
 }

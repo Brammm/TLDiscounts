@@ -7,10 +7,16 @@ namespace {
     use Brammm\TLDiscounts\Domain\Customer\Customer;
     use Brammm\TLDiscounts\Domain\Customer\CustomerRepository;
     use Brammm\TLDiscounts\Domain\Customer\SinceDate;
+    use Brammm\TLDiscounts\Domain\Discount\BuyAmountGetExtra;
+    use Brammm\TLDiscounts\Domain\Discount\DiscountCalculator;
+    use Brammm\TLDiscounts\Domain\Discount\DiscountCheapestProductInCategory;
+    use Brammm\TLDiscounts\Domain\Discount\HighRevenueCustomer;
     use Brammm\TLDiscounts\Domain\Price\Price;
     use Brammm\TLDiscounts\Domain\Product\Category;
     use Brammm\TLDiscounts\Domain\Product\Product;
     use Brammm\TLDiscounts\Domain\Product\ProductRepository;
+    use function DI\get;
+    use function DI\object;
 
     return [
         CustomerRepository::class => function() {
@@ -44,5 +50,26 @@ namespace {
 
             return $repo;
         },
+
+        HighRevenueCustomer::class => function(CustomerRepository $repository) {
+            return new HighRevenueCustomer($repository, new Price(1000));
+        },
+
+        BuyAmountGetExtra::class => function(ProductRepository $repository) {
+            return new BuyAmountGetExtra($repository, Category::SWITCH(), 5 ,1);
+        },
+
+        DiscountCheapestProductInCategory::class => function(ProductRepository $repository) {
+            return new DiscountCheapestProductInCategory($repository, Category::TOOL(), 2, 20);
+        },
+
+        'discounts' => [
+            get(HighRevenueCustomer::class),
+            get(BuyAmountGetExtra::class),
+            get(DiscountCheapestProductInCategory::class)
+        ],
+
+        DiscountCalculator::class => object()
+            ->constructor(get('discounts')),
     ];
 }

@@ -7,7 +7,7 @@ use Brammm\TLDiscounts\Domain\Order\Order;
 use Brammm\TLDiscounts\Domain\Product\Category;
 use Brammm\TLDiscounts\Domain\Product\ProductRepository;
 
-class BuyAmountGetExtra implements Discount
+class BuyAmountGetExtra implements ItemDiscount
 {
     /**
      * @var ProductRepository
@@ -71,15 +71,16 @@ class BuyAmountGetExtra implements Discount
     {
         foreach ($order->getItems() as $item) {
             if ($this->isItemApplicable($item)) {
-                $this->applyItem($item);
+                $item->apply($this);
             }
         }
     }
 
-    private function applyItem(Item $item)
+    public function applyItem(Item $item)
     {
         $freeExtras = (int)(floor($item->getQuantity() / $this->minimumQuantity) * $this->freeExtra);
 
         $item->addExtras($freeExtras);
+        $item->setDiscount($this);
     }
 }

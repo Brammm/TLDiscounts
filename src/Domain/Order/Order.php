@@ -2,6 +2,7 @@
 
 namespace Brammm\TLDiscounts\Domain\Order;
 
+use Brammm\TLDiscounts\Domain\Discount\Discount;
 use Brammm\TLDiscounts\Domain\Price\Price;
 
 class Order implements \JsonSerializable
@@ -25,6 +26,11 @@ class Order implements \JsonSerializable
      * @var Price
      */
     private $total;
+
+    /**
+     * @var Discount
+     */
+    private $discount;
 
     public function __construct(int $id, int $customerId, array $items, Price $total)
     {
@@ -70,7 +76,8 @@ class Order implements \JsonSerializable
             'id' => $this->id,
             'customer-id' => $this->customerId,
             'items' => $this->items,
-            'total' => $this->total,
+            'applied-discount' => isset($this->discount) ? $this->discount->getName() : null,
+            'total' => (string)$this->total,
         ];
     }
 
@@ -80,5 +87,19 @@ class Order implements \JsonSerializable
         foreach ($this->items as $item) {
             $this->total->add($item->getTotal());
         }
+
+        if (isset($this->discount)) {
+            $this->discount->apply($this);
+        }
+    }
+
+    public function setDiscount(Discount $discount)
+    {
+        $this->discount = $discount;
+    }
+
+    public function apply(Discount $discount)
+    {
+        $discount->apply($this);
     }
 }
