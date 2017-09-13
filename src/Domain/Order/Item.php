@@ -34,7 +34,7 @@ class Item implements \JsonSerializable
         $this->total = $total;
     }
 
-    public function getProductId(): int
+    public function getProductId(): string
     {
         return $this->productId;
     }
@@ -42,6 +42,11 @@ class Item implements \JsonSerializable
     public function getQuantity(): int
     {
         return $this->quantity;
+    }
+
+    public function addExtras(int $freeExtras)
+    {
+        $this->quantity += $freeExtras;
     }
 
     public function getUnitPrice(): Price

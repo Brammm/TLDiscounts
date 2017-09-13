@@ -46,6 +46,9 @@ class Order implements \JsonSerializable
         return $this->customerId;
     }
 
+    /**
+     * @return Item[]
+     */
     public function getItems(): array
     {
         return $this->items;
