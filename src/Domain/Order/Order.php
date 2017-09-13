@@ -97,9 +97,4 @@ class Order implements \JsonSerializable
     {
         $this->discount = $discount;
     }
-
-    public function apply(Discount $discount)
-    {
-        $discount->apply($this);
-    }
 }

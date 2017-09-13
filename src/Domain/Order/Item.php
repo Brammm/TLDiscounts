@@ -65,11 +65,6 @@ class Item implements \JsonSerializable
         return $this->total;
     }
 
-    public function apply(ItemDiscount $discount)
-    {
-        $discount->applyItem($this);
-    }
-
     public function setDiscount(ItemDiscount $discount)
     {
         $this->discount = $discount;

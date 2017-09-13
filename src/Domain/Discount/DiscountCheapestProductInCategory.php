@@ -75,7 +75,7 @@ class DiscountCheapestProductInCategory implements ItemDiscount
             }
         }
 
-        $cheapestItem->apply($this);
+        $this->applyItem($cheapestItem);
         $order->recalculateTotal();
     }
 

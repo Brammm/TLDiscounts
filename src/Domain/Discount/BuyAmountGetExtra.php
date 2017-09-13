@@ -71,7 +71,7 @@ class BuyAmountGetExtra implements ItemDiscount
     {
         foreach ($order->getItems() as $item) {
             if ($this->isItemApplicable($item)) {
-                $item->apply($this);
+                $this->applyItem($item);
             }
         }
     }

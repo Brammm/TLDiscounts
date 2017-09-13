@@ -20,7 +20,7 @@ class DiscountCalculator
     {
         foreach ($this->discounts as $discount) {
             if ($discount->isApplicable($order)) {
-                $order->apply($discount);
+                $discount->apply($order);
             }
         }
 
