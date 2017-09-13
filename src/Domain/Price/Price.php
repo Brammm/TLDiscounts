@@ -25,4 +25,19 @@ class Price
 
         return $formatter->format($this->money);
     }
+
+    public function getMoney(): Money
+    {
+        return $this->money;
+    }
+
+    public function higherThan(Price $revenueLimit): bool
+    {
+        return $this->money->greaterThan($revenueLimit->getMoney());
+    }
+
+    public function applyDiscountPercentage(int $percentage)
+    {
+        $this->money = $this->money->multiply((100 - $percentage) / 100);
+    }
 }
