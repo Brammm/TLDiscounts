@@ -110,7 +110,7 @@ class PostDiscountsCalculateTest extends AppTestCase
                     'quantity' => '2',
                     'unit-price' => '9.75',
                     'total' => '15.60',
-                    'applied-discount' => 'TwentyOffCheapest',
+                    'applied-discount' => '20OffCheapest',
                 ],
                 [
                     'product-id' => 'A102',
@@ -171,7 +171,7 @@ class PostDiscountsCalculateTest extends AppTestCase
                     'quantity' => '2',
                     'unit-price' => '9.75',
                     'total' => '15.60',
-                    'applied-discount' => 'TwentyOffCheapest',
+                    'applied-discount' => '20OffCheapest',
                 ],
                 [
                     'product-id' => 'A102',

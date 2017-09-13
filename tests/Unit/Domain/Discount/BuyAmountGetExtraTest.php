@@ -14,7 +14,6 @@ use PHPUnit_Framework_MockObject_MockObject;
 
 class BuyAmountGetExtraTest extends TestCase
 {
-
     /**
      * @var ProductRepository|PHPUnit_Framework_MockObject_MockObject
      */

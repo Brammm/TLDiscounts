@@ -73,4 +73,12 @@ class Order implements \JsonSerializable
             'total' => $this->total,
         ];
     }
+
+    public function recalculateTotal()
+    {
+        $this->total = new Price(0);
+        foreach ($this->items as $item) {
+            $this->total->add($item->getTotal());
+        }
+    }
 }
