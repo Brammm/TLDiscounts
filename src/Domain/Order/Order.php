@@ -4,7 +4,7 @@ namespace Brammm\TLDiscounts\Domain\Order;
 
 use Brammm\TLDiscounts\Domain\Price\Price;
 
-class Order
+class Order implements \JsonSerializable
 {
     /**
      * @var int
@@ -59,5 +59,15 @@ class Order
     private function addItem(Item $item)
     {
         $this->items[] = $item;
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'customer-id' => $this->customerId,
+            'items' => $this->items,
+            'total' => $this->total,
+        ];
     }
 }

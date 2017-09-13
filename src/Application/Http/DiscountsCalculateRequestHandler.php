@@ -2,6 +2,7 @@
 
 namespace Brammm\TLDiscounts\Application\Http;
 
+use Brammm\TLDiscounts\Domain\Discount\DiscountCalculator;
 use Brammm\TLDiscounts\Domain\Order\Item;
 use Brammm\TLDiscounts\Domain\Order\Order;
 use Brammm\TLDiscounts\Domain\Price\Price;
@@ -10,6 +11,16 @@ use Slim\Http\Response;
 
 class DiscountsCalculateRequestHandler
 {
+    /**
+     * @var DiscountCalculator
+     */
+    private $calculator;
+
+    public function __construct(DiscountCalculator $calculator)
+    {
+        $this->calculator = $calculator;
+    }
+
     public function __invoke(Request $request, Response $response)
     {
         // TODO: Add validation that these parameters are set
@@ -30,7 +41,8 @@ class DiscountsCalculateRequestHandler
             new Price((float)$request->getParsedBody()['total'])
         );
 
+        $this->calculator->process($order);
 
-        return $response;
+        return $response->withJson($order);
     }
 }
