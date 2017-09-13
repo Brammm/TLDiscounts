@@ -4,7 +4,7 @@ namespace Brammm\TLDiscounts\Application\Http;
 
 use Brammm\TLDiscounts\Domain\Order\Item;
 use Brammm\TLDiscounts\Domain\Order\Order;
-use Brammm\TLDiscounts\Domain\Order\Price;
+use Brammm\TLDiscounts\Domain\Price\Price;
 use Slim\Http\Request;
 use Slim\Http\Response;
 

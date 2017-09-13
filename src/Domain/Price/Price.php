@@ -1,6 +1,6 @@
 <?php
 
-namespace Brammm\TLDiscounts\Domain\Order;
+namespace Brammm\TLDiscounts\Domain\Price;
 
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;

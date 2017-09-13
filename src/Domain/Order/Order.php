@@ -2,6 +2,8 @@
 
 namespace Brammm\TLDiscounts\Domain\Order;
 
+use Brammm\TLDiscounts\Domain\Price\Price;
+
 class Order
 {
     /**

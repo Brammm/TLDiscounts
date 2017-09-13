@@ -4,7 +4,7 @@ namespace Brammm\TLDiscounts\Tests\Unit\Domain\Order;
 
 use Brammm\TLDiscounts\Domain\Order\Item;
 use Brammm\TLDiscounts\Domain\Order\Order;
-use Brammm\TLDiscounts\Domain\Order\Price;
+use Brammm\TLDiscounts\Domain\Price\Price;
 use PHPUnit\Framework\TestCase;
 
 class OrderTest extends TestCase

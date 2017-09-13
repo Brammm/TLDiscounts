@@ -2,7 +2,7 @@
 
 namespace Brammm\TLDiscounts\Tests\Unit\Domain\Order;
 
-use Brammm\TLDiscounts\Domain\Order\Price;
+use Brammm\TLDiscounts\Domain\Price\Price;
 use PHPUnit\Framework\TestCase;
 
 class PriceTest extends TestCase
