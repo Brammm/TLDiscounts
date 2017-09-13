@@ -24,6 +24,10 @@ class HighRevenueCustomer implements Discount
         $this->revenueLimit = $revenueLimit;
     }
 
+    public function getName(): string
+    {
+        return 'HighRevenueCustomer';
+    }
 
     public function isApplicable(Order $order): bool
     {
@@ -35,10 +39,5 @@ class HighRevenueCustomer implements Discount
     public function apply(Order $order)
     {
         $order->getTotal()->applyDiscountPercentage(10);
-    }
-
-    public function getName(): string
-    {
-        return 'HighRevenueCustomer';
     }
 }
