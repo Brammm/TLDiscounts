@@ -21,7 +21,10 @@ class DiscountsCalculateRequestHandler
         $this->calculator = $calculator;
     }
 
-    public function __invoke(Request $request, Response $response)
+    /**
+     * Transforms the Request into an Order object and passes it to the discount calculator
+     */
+    public function __invoke(Request $request, Response $response): Response
     {
         // TODO: Add validation that these parameters are set
         $items = [];

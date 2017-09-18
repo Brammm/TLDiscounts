@@ -6,8 +6,6 @@ namespace {
 
     require(__DIR__ . '/../vendor/autoload.php');
 
-    $app = new Discounts(__DIR__ . '/../');
-
-    $app->run();
+    (new Discounts(__DIR__ . '/../'))->run();
 }
 

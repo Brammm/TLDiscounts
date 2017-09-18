@@ -13,7 +13,7 @@ class InMemoryProductRepository implements ProductRepository
      */
     private $products = [];
 
-    public function save(Product $product)
+    public function save(Product $product): void
     {
         $this->products[$product->getId()] = $product;
     }

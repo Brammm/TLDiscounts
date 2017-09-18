@@ -36,7 +36,7 @@ class HighRevenueCustomer implements Discount
         return $customer->getRevenue()->higherThan($this->revenueLimit);
     }
 
-    public function apply(Order $order)
+    public function apply(Order $order): void
     {
         $order->getTotal()->applyDiscountPercentage(10);
         $order->setDiscount($this);

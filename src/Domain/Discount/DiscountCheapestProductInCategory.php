@@ -55,7 +55,7 @@ class DiscountCheapestProductInCategory implements Discount
         return $productCounter >= $this->requiredItems;
     }
 
-    public function apply(Order $order)
+    public function apply(Order $order): void
     {
         $cheapestItem = null;
         $cheapestProduct = null;
@@ -79,7 +79,7 @@ class DiscountCheapestProductInCategory implements Discount
         $order->recalculateTotal();
     }
 
-    public function applyItem(Item $item)
+    private function applyItem(Item $item)
     {
         $item->getTotal()->applyDiscountPercentage(20);
         $item->setDiscount($this);

@@ -16,6 +16,9 @@ class DiscountCalculator
         $this->discounts = $discounts;
     }
 
+    /**
+     * Process an order and apply all discounts that are available to the calculator
+     */
     final public function process(Order $order)
     {
         foreach ($this->discounts as $discount) {

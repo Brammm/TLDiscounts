@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Configures the PHP-DI container.
+ * @see Discounts::configureContainer()
+ */
+
 namespace {
 
     use Brammm\TLDiscounts\Application\Customer\InMemoryCustomerRepository;

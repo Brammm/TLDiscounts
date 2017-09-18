@@ -65,7 +65,7 @@ class Order implements \JsonSerializable
         return $this->total;
     }
 
-    private function addItem(Item $item)
+    private function addItem(Item $item): void
     {
         $this->items[] = $item;
     }
@@ -81,7 +81,7 @@ class Order implements \JsonSerializable
         ];
     }
 
-    public function recalculateTotal()
+    public function recalculateTotal(): void
     {
         $this->total = new Price(0);
         foreach ($this->items as $item) {
@@ -93,7 +93,7 @@ class Order implements \JsonSerializable
         }
     }
 
-    public function setDiscount(Discount $discount)
+    public function setDiscount(Discount $discount): void
     {
         $this->discount = $discount;
     }

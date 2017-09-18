@@ -50,7 +50,7 @@ class Item implements \JsonSerializable
         return $this->quantity;
     }
 
-    public function addExtras(int $freeExtras)
+    public function addExtras(int $freeExtras): void
     {
         $this->quantity += $freeExtras;
     }
@@ -65,12 +65,12 @@ class Item implements \JsonSerializable
         return $this->total;
     }
 
-    public function setDiscount(Discount $discount)
+    public function setDiscount(Discount $discount): void
     {
         $this->discount = $discount;
     }
 
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return [
             'product-id' => $this->productId,

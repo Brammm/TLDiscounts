@@ -4,6 +4,9 @@ namespace Brammm\TLDiscounts\Domain\Customer;
 
 use Cake\Chronos\Chronos;
 
+/**
+ * Value object that saves the date when a customer became... customer
+ */
 class SinceDate
 {
     /**

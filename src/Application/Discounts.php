@@ -18,7 +18,7 @@ class Discounts extends App
         $this->rootDir = $rootDir;
         parent::__construct();
 
-        $this->loadHttp();
+        $this->loadRoutes();
     }
 
     protected function configureContainer(ContainerBuilder $builder)
@@ -26,7 +26,7 @@ class Discounts extends App
         $builder->addDefinitions($this->rootDir . '/app/config.php');
     }
 
-    private function loadHttp()
+    private function loadRoutes()
     {
         $this->post('/discounts.calculate', DiscountsCalculateRequestHandler::class);
     }

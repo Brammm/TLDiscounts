@@ -52,6 +52,15 @@ class BuyAmountGetExtra implements Discount
         return false;
     }
 
+    public function apply(Order $order): void
+    {
+        foreach ($order->getItems() as $item) {
+            if ($this->isItemApplicable($item)) {
+                $this->applyItem($item);
+            }
+        }
+    }
+
     private function isItemApplicable(Item $item)
     {
         $product = $this->repository->findById($item->getProductId());
@@ -67,16 +76,7 @@ class BuyAmountGetExtra implements Discount
         return true;
     }
 
-    public function apply(Order $order)
-    {
-        foreach ($order->getItems() as $item) {
-            if ($this->isItemApplicable($item)) {
-                $this->applyItem($item);
-            }
-        }
-    }
-
-    public function applyItem(Item $item)
+    private function applyItem(Item $item)
     {
         $freeExtras = (int)(floor($item->getQuantity() / $this->minimumQuantity) * $this->freeExtra);
 

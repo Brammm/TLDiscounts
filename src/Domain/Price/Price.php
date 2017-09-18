@@ -36,17 +36,17 @@ class Price
         return $this->money->greaterThan($price->getMoney());
     }
 
-    public function lowerThan(Price $price)
+    public function lowerThan(Price $price): bool
     {
         return $this->money->lessThan($price->getMoney());
     }
 
-    public function applyDiscountPercentage(int $percentage)
+    public function applyDiscountPercentage(int $percentage): void
     {
         $this->money = $this->money->multiply((100 - $percentage) / 100);
     }
 
-    public function add(Price $price)
+    public function add(Price $price): void
     {
         $this->money = $this->money->add($price->getMoney());
     }
